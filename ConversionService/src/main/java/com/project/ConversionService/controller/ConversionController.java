@@ -19,11 +19,11 @@ public class ConversionController {
 	ConversionService conversionService;
 	
 	
-//	@GetMapping("/all")
-//	List<ConversionPojo> getCurrency() {
-//		
-//		return conversionService.getCurrency();
-//		
+	@GetMapping("all") 
+	List<ConversionPojo> getAllCurrencies() {
+		
+		return conversionService.getAllCurrencies();
+	}
 	@GetMapping("con/{cId}")
 	ConversionPojo getCurrency(@PathVariable ("cId") Integer cId) {
 		
