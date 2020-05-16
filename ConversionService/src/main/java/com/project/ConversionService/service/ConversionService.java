@@ -6,6 +6,6 @@ import com.project.ConversionService.pojo.ConversionPojo;
 
 public interface ConversionService {
 
-//	List<ConversionPojo> getCurrency();
+List<ConversionPojo> getAllCurrencies();
 	ConversionPojo getCurrency(Integer cId);
 }
