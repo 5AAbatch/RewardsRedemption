@@ -35,29 +35,31 @@ public class ConversionServiceImpl implements ConversionService{
 			
 		return conversionPojo;
 	
+	}
+	
+	
+	
+	
+	@Override
+	public List<ConversionPojo> getAllCurrencies() {
+	
+		List<ConversionPojo> currencyPojo = new ArrayList();
+		Iterable<ConversionEntity> currencyEntity = conversionDao.findAll();
+		Iterator itr = currencyEntity.iterator();
+		
+		while(itr.hasNext()) {
+			ConversionEntity convEntity = (ConversionEntity) itr.next();
+			
+			ConversionPojo conversionPojo = new ConversionPojo(convEntity.getId(),
+									convEntity.getName(),
+									convEntity.getValue());
+		    currencyPojo.add(conversionPojo);
+		}
+		
+		return currencyPojo;
+	}
 
 	
-	
-	
-	
-//	@Override
-//	public List<ConversionPojo> getCurrency() {
-//	
-//		List<ConversionPojo> currencyPojo = new ArrayList();
-//		Iterable<ConversionEntity> currencyEntity = conversionDao.findAll();
-//		Iterator itr = currencyEntity.iterator();
-//		
-//		while(itr.hasNext()) {
-//			ConversionEntity convEntity = (ConversionEntity) itr.next();
-//			
-//			ConversionPojo conversionPojo = new ConversionPojo(convEntity.getId(),
-//																convEntity.getName(),
-//																convEntity.getValue());
-//		    currencyPojo.add(conversionPojo);
-//		}
-//		
-//		return currencyPojo;
-	}
 	
 	
 }
